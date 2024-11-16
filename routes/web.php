@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\preDashboard;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserProfileController;
@@ -60,6 +61,9 @@ Route::post('/store', [CategoryController::class, 'store'])->middleware(['auth',
 Route::put('/cu/{id}', [CategoryController::class, 'edit'])->middleware(['auth', 'verified']);
 Route::put('/updateCategory/{id}', [CategoryController::class, 'update'])->middleware(['auth', 'verified']);
 Route::get('/destroyCategory/{id}', [CategoryController::class, 'destroy'])->middleware(['auth', 'verified']);
+
+Route::get('/comment/{id}', [CommentsController::class, 'create'])->middleware(['auth', 'verified']);
+Route::post('/storeComment', [CommentsController::class, 'store'])->middleware(['auth', 'verified']);
 
 
 Route::middleware('auth')->group(function () {

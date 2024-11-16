@@ -11,12 +11,13 @@ class UserProfileController extends Controller
     public function index($id, $category)
     {
         $Users = User::all();
-
+        $page = "Perfil";
         return view('profile',
         [
             'Users' => $Users,
             'id' => $id,
-            'category' => $category
+            'category' => $category,
+            'page' => $page
         ]);
     }
 

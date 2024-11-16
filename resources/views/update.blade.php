@@ -84,8 +84,6 @@
                         </select>
                     </div>
 
-
-
                     <div class="mb-3">
                         <label for="lowDescription" class="form-label">Breve descrição:</label>
                         <textarea name="lowDescription" id="lowDescription" class="form-control">{{ $user->lowDescription }}</textarea>

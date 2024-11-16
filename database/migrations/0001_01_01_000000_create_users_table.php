@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('categoryId')->default(1);
             $table->string('lowDescription')->default('Descricao sobre mim');
             $table->text('longDescription')->nullable();
-            $table->integer('idAvaliation')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -34,11 +33,13 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->integer('avaliationId');
-            $table->string('userCommented');
-            $table->string('commentedUser');
+            $table->string('idUserComentou');
+            $table->string('idUserComentado');
+            $table->string('comment');
+            $table->timestamps();
         });
 
-        Schema::create('avaliation', function (Blueprint $table) {
+        Schema::create('avaliations', function (Blueprint $table) {
             $table->id();
             $table->string('avaliationType');
         });

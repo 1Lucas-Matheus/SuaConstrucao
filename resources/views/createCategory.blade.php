@@ -72,8 +72,8 @@
                         <h1>Crie seu algo aqui</h1>
                         <div class="form-group">
                             <label for="">Seu algo:</label>
-                            <input type="text" class="form-control" name="name" placeholder="nome do seu algo">
-                            <input type="submit" value="Criar evento">
+                            <input type="text" class="form-control mb-2" name="name" placeholder="nome do seu algo">
+                            <input type="submit" class="btn btn-success" value="Criar evento">
                         </div>
                     </form>
                 </div>
