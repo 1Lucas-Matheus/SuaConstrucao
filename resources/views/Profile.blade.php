@@ -36,21 +36,30 @@
                 <p>{{ $estrelas }} Estrelas</p>
 
                 <div class="d-flex">
-                    <h3>Comentários:</h3><form action="/comment/{{$user->id}}"><button type="submit" class="btn btn-primary">Comentar</button></form>
+                    <h3>Comentários:</h3>
+                    <form action="/comment/{{$user->id}}"><button type="submit" class="btn btn-primary">Comentar</button></form>
                 </div>
-
+                @foreach($Comments as $comment)
                 <div>
                     <div class="card border shadow m-3">
                         <div class="card-header text-dark font-weight-bold">
-                            
+                            @if($comment->UserComentado == $user->name )
+                                {{$comment->UserComentou}}
+                            @endif
+                        </div>
+                        <div class="card-body">
+                            {{$comment->comment}}
+                            {{$comment->avaliationId}}
                         </div>
                     </div>
                 </div>
-
-                @endif
                 @endforeach
             </div>
+
+            @endif
+            @endforeach
         </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

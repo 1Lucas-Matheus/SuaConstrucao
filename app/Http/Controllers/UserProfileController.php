@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comments;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
 {
 
     public function index($id, $category)
     {
+        $Comments = Comments::all();
         $Users = User::all();
         $page = "Perfil";
         return view('profile',
@@ -17,6 +18,7 @@ class UserProfileController extends Controller
             'Users' => $Users,
             'id' => $id,
             'category' => $category,
+            'Comments' => $Comments,
             'page' => $page
         ]);
     }

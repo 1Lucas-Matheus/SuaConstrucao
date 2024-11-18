@@ -42,34 +42,31 @@ class CommentsController extends Controller
 
     public function edit($id)
     {
-        $category = comments::findOrFail($id);
-        $categories = comments::All();
-        $page = "Atualizar Categoria";
+        $comments = comments::findOrFail($id);
+        $page = "Editar comentario";
 
         return view(
             'updateCategory',
             [
-                'category' => $category,
-                'categories' => $categories,
+                'comments' => $comments,
                 'page' => $page
             ]);
     }
 
     public function update(Request $request, $id)
     {
-        $category = comments::findOrFail($id);
-        $categories = comments::All();
-        $page = "Categorias";
-        $category->Name = $request->Name;
-        $category->id = $request->id;
-        $category->updated_at = now();
-        $category->save();
+        $comments = comments::findOrFail($id);
+        $page = "Perfil";
+        $comments->Name = $request->Name;
+        $comments->id = $request->id;
+        $comments->updated_at = now();
+        $comments->save();
 
         return view('/categories',
         [
-            'categories' => $categories,
+            'comments' => $comments,
             'page' => $page
-        ])->with('message', 'Usuário atualizado com sucesso!');
+        ])->with('message', 'Usuário Comentário com sucesso!');
     }
 
 
